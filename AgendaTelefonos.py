@@ -20,4 +20,4 @@ vTelefonos.append(Telefono1)
 print(vNombres)
 print(vTelefonos)
 
-print("El nombre de tu contacto es:", vNombres, "su número es:", vTelefonos)
+print("El nombre de tu contacto es", vNombres[0], "y su número es", vTelefonos[0])
