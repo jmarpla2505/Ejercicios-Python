@@ -11,13 +11,24 @@
 vNombres = []
 vTelefonos = []
 
-Nombre1=input("Dime un nombre:")
-Telefono1=int(input("Dime su teléfono:"))
-
-vNombres.append(Nombre1)
-vTelefonos.append(Telefono1)
-
-print(vNombres)
-print(vTelefonos)
-
-print("El nombre de tu contacto es", vNombres[0], "y su número es", vTelefonos[0])
+#Creamos el menú de la agenda
+"""
+1- Insertar contacto
+2- Borrar contacto
+3- Buscar contacto
+4- Ver todos los contactos
+5- Salir
+"""
+opc=0
+while (opc != 5):
+    print ("***** Menú agenda *****")
+    print ("1- Insertar contacto")
+    print ("2- Borrar contacto")
+    print ("3- Buscar contacto")
+    print ("4- Ver todos los contactos")
+    print ("5- Salir")
+    print ("***********************")
+    try:
+        opc = int(input("Seleccione una opción:"))
+    except:
+        print("Las opciones son de la 1 al 5")
