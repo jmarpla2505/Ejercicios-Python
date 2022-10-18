@@ -1,10 +1,8 @@
-edad = 5
 
-edad_como_texto = str(edad)
-edad = int(edad_como_texto)
 
-print(edad/5)
+#Funciones definidas por el usuario
 
-print( len("Juan"))
+def numerosenteros(numero1:int, numero2:int):
+    print(numero1+numero2)
 
-edad = int(input("Dime tu edad: "))
+numerosenteros(1,2)
