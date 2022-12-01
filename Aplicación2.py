@@ -8,12 +8,14 @@ contraseña = ""
 repiteC = ""
 vUsuarios = []
 vContraseña = []
+sexo = ""
 
 
 def guardarDatos():
     usuario = datos_Usuario.get()
     contraseña= datos_Contraseña.get()
     repiteC = datos_Confirmacontr.get()
+    sexo = combo_sexo.get()
     if contraseña==repiteC:
         vUsuarios.append(usuario)
         vUsuarios.append(contraseña)
@@ -21,6 +23,7 @@ def guardarDatos():
         datos_Usuario.delete(0,len(usuario))
         datos_Contraseña.delete(0,len(contraseña))
         datos_Confirmacontr.delete(0,len(repiteC))
+        combo_sexo.delete(0,len(sexo))
         messagebox.showinfo("Usuario guardado",f"Usuario {usuario} guardado correctamente")
     
     
@@ -30,6 +33,13 @@ ventana.title("Login")
 ventana.geometry("500x250")
 ventana.resizable(False,False)
 ventana.config(background="light blue")
+
+
+combo_sexo = ttk.Combobox(ventana,values=["Masculino","Femenino"], )
+label_combo = ttk.Label(ventana, text="Dime tu sexo:")
+label_combo.config(background="light blue")
+combo_sexo.set("(Seleccione un sexo)")
+combo_sexo.state(["readonly"])
 
 label_Titulo = ttk.Label(ventana, text="Datos usuario")
 label_Titulo.config(background="light blue")
@@ -49,8 +59,8 @@ datos_Confirmacontr = ttk.Entry(ventana,show="*")
 
 boton_Guardar =ttk.Button(ventana,text="Guardar",command=guardarDatos)
 boton_Salir =ttk.Button(ventana,text="Salir", command=ventana.destroy)
-boton_Guardar.grid(row=5,column=0,pady=10)
-boton_Salir.grid(row=5,column=1,pady=10)
+boton_Guardar.grid(row=7,column=0,pady=10)
+boton_Salir.grid(row=7,column=1,pady=10)
 
 #Pintar en pantalla los componentes
 label_Titulo.grid(row=0,column=1,pady=5)
@@ -64,6 +74,9 @@ datos_Contraseña.grid(row=2,column=1,pady=10)
 
 label_Confirmacontr.grid(row=4,column=0,padx=8)
 datos_Confirmacontr.grid(row=4,column=1,pady=8)
+
+combo_sexo.grid(row=5, column=1, pady=8)
+label_combo.grid(row=5, column=0,pady=8)
 
 
 
