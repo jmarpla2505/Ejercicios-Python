@@ -13,6 +13,14 @@ def main(page:ft.Page):
     def dropdown_changed2(e):
         tt.value = f"Elegido {dropDown_Menu2.value}"
         page.update()
+    def guardar(e):
+        lista_seleccionados.append(ts.value)
+        lista_seleccionados.append(slider_verdura.value)
+        lista_seleccionados.append(tt.value)
+        lista_seleccionados.append(slider_carne.value)
+        print(lista_seleccionados)
+        lista_seleccionados.clear
+
     
 
     #Componente texto
@@ -43,6 +51,9 @@ def main(page:ft.Page):
     slider_verdura = ft.Slider(min=0, max=1500, divisions=30, label="Cantidad: {value} g")
     slider_carne = ft.Slider(min=0, max=2000, divisions=40, label="Cantidad: {value} g")
 
+    bt = ft.FloatingActionButton(icon=ft.icons.ADD, on_click=guardar)
+    page.add(bt)
+
 
     #Crear fila
     fila = ft.Row(controls=[textField_Nombre])
@@ -55,9 +66,9 @@ def main(page:ft.Page):
     #slider_verdura = ft.Slider(min=0, max=1500, divisions=30, label="Peso: {value} g")
     #page.add(slider_verdura)
 
-    lista_seleccionados.append(ts.value)
-    lista_seleccionados.append(tt.value)
-    print(lista_seleccionados)
+    
+   
+    
     
    
 
