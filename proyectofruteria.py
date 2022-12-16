@@ -19,7 +19,12 @@ def main(page:ft.Page):
         lista_seleccionados.append(tt.value)
         lista_seleccionados.append(slider_carne.value)
         print(lista_seleccionados)
-        lista_seleccionados.clear
+        tl = ft.ListView()
+        lista_seleccionados()
+        fila4 = ft.Row(controls=[tl])
+        page.add(fila4)
+
+        #lista_seleccionados.clear()
 
     
 
@@ -66,14 +71,11 @@ def main(page:ft.Page):
     #slider_verdura = ft.Slider(min=0, max=1500, divisions=30, label="Peso: {value} g")
     #page.add(slider_verdura)
 
-    
-   
-    
-    
-   
-
-    
-
+    #tl = ft.Text()
+    #lista_seleccionados()
+    #lista_seleccionados = tl
+    #fila4 = ft.Row(controls=[tl])
+    #page.add(fila4)
 
     '''''
     lv = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=False)
