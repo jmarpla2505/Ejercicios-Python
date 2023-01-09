@@ -5,7 +5,7 @@ lista_seleccionados = []
 
 
 def main(page:ft.Page):
-    page.title = "Aplicación frutería"
+    page.title = "Frutería"
 
     def dropdown_changed(e):
         ts.value = f"Elegido {dropDown_Menu.value}"
@@ -19,15 +19,19 @@ def main(page:ft.Page):
         lista_seleccionados.append(tt.value)
         lista_seleccionados.append(slider_carne.value)
         print(lista_seleccionados)
-        tl = ft.ListView()
-        lista_seleccionados()
-        fila4 = ft.Row(controls=[tl])
-        page.add(fila4)
+        #tl = ft.Text()
+        #lista_seleccionados()
+        #fila4 = ft.Row(controls=[tl])
+        #page.add(fila4)
 
         #lista_seleccionados.clear()
-
-    
-
+    def imagen(e):
+        img2 = ft.Image(
+            src=f"https://img.freepik.com/vector-gratis/fondo-pantalla-multiples-frutas-verduras_23-2148481554.jpg?w=2000",
+            width=100,
+            height=100,
+        fit=ft.ImageFit.CONTAIN, )
+        page.add(img2)
     #Componente texto
     t=ft.Text(value="Bienvenido", color="green", size=30)
     page.add(t)
@@ -37,7 +41,7 @@ def main(page:ft.Page):
     #page.add(textField_Nombre)
 
     ts = ft.Text()
-    dropDown_Menu = ft.Dropdown(width=400, label="Verduras y hortalizas", on_change=dropdown_changed, options=[ft.dropdown.Option("Lechuga")])
+    dropDown_Menu = ft.Dropdown(width=400, label="Verduras y hortalizas", on_change=dropdown_changed, options=[ft.dropdown.Option("Lechuga")], on_focus=imagen)
     #page.add(dropDown_Menu)
     dropDown_Menu.options.append(ft.dropdown.Option("Zanahorias"))
     dropDown_Menu.options.append(ft.dropdown.Option("Cebollas"))
@@ -59,8 +63,16 @@ def main(page:ft.Page):
     bt = ft.FloatingActionButton(icon=ft.icons.ADD, on_click=guardar)
     page.add(bt)
 
+    img = ft.Image(
+        src=f"https://mir-s3-cdn-cf.behance.net/projects/404/6ec4b7102615209.Y3JvcCwxMTE2LDg3Myw3NjUsMjkw.png",
+        width=100,
+        height=100,
+        fit=ft.ImageFit.CONTAIN,
+    )
 
     #Crear fila
+    fila0 = ft.Row(controls=[img])
+    page.add(fila0)
     fila = ft.Row(controls=[textField_Nombre])
     page.add(fila)
     fila2 = ft.Row(controls = [dropDown_Menu, slider_verdura])
@@ -77,6 +89,24 @@ def main(page:ft.Page):
     #fila4 = ft.Row(controls=[tl])
     #page.add(fila4)
 
+    '''''
+    images = ft.Row(expand=1, wrap=False, scroll="always")
+
+    page.add(images)
+
+    for i in range(0, 30):
+        images.controls.append(
+            ft.Image(
+                src=f"https://picsum.photos/200/200?{i}",
+                width=200,
+                height=200,
+                fit=ft.ImageFit.NONE,
+                repeat=ft.ImageRepeat.NO_REPEAT,
+                border_radius=ft.border_radius.all(10),
+            )
+        )
+    page.update()
+    '''''
     '''''
     lv = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=False)
 
