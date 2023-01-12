@@ -64,7 +64,7 @@ def main(page:ft.Page):
     page.add(bt)
 
     img = ft.Image(
-        src=f"https://mir-s3-cdn-cf.behance.net/projects/404/6ec4b7102615209.Y3JvcCwxMTE2LDg3Myw3NjUsMjkw.png",
+        src=f"Imagenes/fruta.png",
         width=100,
         height=100,
         fit=ft.ImageFit.CONTAIN,
@@ -126,4 +126,4 @@ def main(page:ft.Page):
     '''''
 
 
-ft.app(target=main)
+ft.app(target=main, assets_dir="recursos")
